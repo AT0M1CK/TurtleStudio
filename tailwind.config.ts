@@ -23,6 +23,8 @@ const config: Config = {
         display: ["var(--font-display)", "var(--font-body)", "sans-serif"],
         // IBM Plex Mono — technical annotations only
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        // Fraunces — brand wordmark only
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       boxShadow: {
         // Very subtle card elevation — no drop-shadow soup.

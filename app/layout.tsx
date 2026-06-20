@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, Inter, IBM_Plex_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 
 // Display — Archivo, with the width axis enabled for expanded statements.
@@ -25,6 +25,14 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
+// Brand wordmark — Fraunces (elegant display serif).
+const serif = Fraunces({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Turtle Studio — A production tool that feels like equipment",
   description:
@@ -39,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${serif.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}

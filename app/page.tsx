@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/logo";
 
 /* ============================================================
    Turtle Studio — landing page
@@ -101,9 +102,7 @@ export default function Home() {
 function SiteHeader() {
   return (
     <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-      <Link href="/" className="label-mono text-foreground" aria-label="Turtle Studio home">
-        Turtle Studio
-      </Link>
+      <Logo />
       <nav className="flex items-center gap-2 sm:gap-4">
         <Link
           href="/login"
