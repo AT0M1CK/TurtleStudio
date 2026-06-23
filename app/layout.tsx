@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo, Inter, IBM_Plex_Mono, Fraunces } from "next/font/google";
+import {
+  Archivo,
+  Inter,
+  IBM_Plex_Mono,
+  Fraunces,
+  Courier_Prime,
+} from "next/font/google";
 import "./globals.css";
 
 // Display — Archivo, with the width axis enabled for expanded statements.
@@ -33,6 +39,15 @@ const serif = Fraunces({
   display: "swap",
 });
 
+// Screenplay surface — Courier Prime (the screenplay-standard Courier).
+const screenplay = Courier_Prime({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-screenplay",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Turtle Studio — A production tool that feels like equipment",
   description:
@@ -47,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} ${serif.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${serif.variable} ${screenplay.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}

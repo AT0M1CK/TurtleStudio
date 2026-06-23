@@ -106,6 +106,44 @@ export default async function ProjectPage({
           </div>
         </dl>
 
+        {/* Screenplay */}
+        <Section label="Screenplay">
+          <Link
+            href={`/projects/${project.id}/script`}
+            className="flex items-center justify-between gap-4 rounded-[6px] border border-foreground/10 bg-surface p-4 shadow-card transition-colors duration-200 hover:border-foreground/30"
+          >
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden
+                className="flex h-9 w-9 flex-none items-center justify-center rounded-[5px] bg-foreground text-background"
+              >
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+                  <path
+                    d="M7 3.5h7L19 8v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V5A1.5 1.5 0 0 1 6.5 3.5Z"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13.5 3.5V8H19M8.5 12h7M8.5 15.5h7M8.5 19h4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <div className="leading-tight">
+                <p className="text-sm font-medium text-foreground">
+                  Open the screenplay
+                </p>
+                <p className="label-mono text-muted">Write &amp; format in Fountain</p>
+              </div>
+            </div>
+            <span className="label-mono flex-none text-accent">Open →</span>
+          </Link>
+        </Section>
+
         {/* Team (Step 4) */}
         <Section label="Team">
           <div className="flex items-center gap-3 rounded-[6px] border border-foreground/10 bg-surface/50 p-4">

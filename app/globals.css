@@ -50,6 +50,133 @@ body {
 }
 
 /* Honour reduced-motion: kill reveals and transitions. */
+/* Screenplay rendering — styles fountain-js output (h3 scene heading,
+   h2 transition, plain p action, .dialogue block with h4 character +
+   .parenthetical, .centered). Rendered in mono for a precise script feel. */
+.screenplay {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+.screenplay h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.screenplay h3:first-child {
+  margin-top: 0;
+}
+.screenplay > p {
+  margin: 0 0 0.85rem;
+}
+.screenplay h2 {
+  margin: 1.25rem 0;
+  text-align: right;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.screenplay .dialogue {
+  margin: 0.5rem auto 0.95rem;
+  max-width: 22rem;
+}
+.screenplay .dialogue h4 {
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+.screenplay .dialogue .parenthetical {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+}
+.screenplay .dialogue p {
+  margin: 0;
+}
+.screenplay .centered {
+  margin: 1.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ── WYSIWYG screenplay editor ─────────────────────────────────────────────
+   A white US-Letter-ish page floating in the cream workspace; 12pt Courier
+   Prime. Indents use `ch` units, which are exact in a monospaced face. */
+.screenplay-workspace {
+  margin-top: 1.5rem;
+}
+.screenplay-page {
+  margin: 0 auto 4rem;
+  width: min(100%, 51rem);
+  background: #ffffff;
+  border: 1px solid rgba(1, 2, 1, 0.08);
+  box-shadow: 0 1px 3px rgba(1, 2, 1, 0.06);
+  border-radius: 2px;
+  padding: 3.5rem clamp(1rem, 4vw, 4rem);
+}
+.screenplay-surface {
+  font-family: var(--font-screenplay), "Courier New", monospace;
+  font-size: 16px; /* 12pt */
+  line-height: 1.25;
+  color: #1a1a1a;
+  outline: none;
+}
+.screenplay-surface p {
+  margin: 0;
+  min-height: 1.25em;
+  white-space: pre-wrap;
+  max-width: 60ch;
+}
+.screenplay-surface p[data-element="scene_heading"] {
+  margin-top: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.screenplay-surface p[data-element="scene_heading"]:first-child {
+  margin-top: 0;
+}
+.screenplay-surface p[data-element="shot"] {
+  margin-top: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.screenplay-surface p[data-element="action"] {
+  margin-top: 1em;
+}
+.screenplay-surface p[data-element="character"] {
+  margin: 1em 0 0 21ch;
+  text-transform: uppercase;
+}
+.screenplay-surface p[data-element="parenthetical"] {
+  margin-left: 16ch;
+  max-width: 28ch;
+}
+.screenplay-surface p[data-element="dialogue"] {
+  margin-left: 10ch;
+  max-width: 35ch;
+}
+.screenplay-surface p[data-element="transition"] {
+  margin-top: 1em;
+  text-align: right;
+  text-transform: uppercase;
+}
+.screenplay-surface p[data-element="general"] {
+  margin-top: 1em;
+  text-align: center;
+}
+/* Placeholder on an empty editor (Tiptap Placeholder extension). */
+.screenplay-surface p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--muted);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
